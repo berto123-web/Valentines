@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine's Invitation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="romantic-bg" id="romanticBg"></div>
+
+    <!-- Page 1: Anniversary Password -->
+    <div class="page page1 active" id="page1">
+      <div class="password-container">
+        <h1>Valentines and 6th Monthsary Invitation 💕</h1>
+        <p>Enter the date of our anniversary (MMDDYY)</p>
+        <div class="password-display">
+          <input
+            type="password"
+            id="passwordInput"
+            readonly
+            placeholder="••••••"
+            maxlength="6"
+          />
+        </div>
+        <div class="pin-pad">
+          <button class="pin-btn" onclick="addPin('1')">1</button>
+          <button class="pin-btn" onclick="addPin('2')">2</button>
+          <button class="pin-btn" onclick="addPin('3')">3</button>
+          <button class="pin-btn" onclick="addPin('4')">4</button>
+          <button class="pin-btn" onclick="addPin('5')">5</button>
+          <button class="pin-btn" onclick="addPin('6')">6</button>
+          <button class="pin-btn" onclick="addPin('7')">7</button>
+          <button class="pin-btn" onclick="addPin('8')">8</button>
+          <button class="pin-btn" onclick="addPin('9')">9</button>
+          <button class="pin-btn delete-btn" onclick="deletePin()">⌫</button>
+          <button class="pin-btn" onclick="addPin('0')">0</button>
+          <button class="pin-btn submit-btn" onclick="submitPassword()">
+            ✓
+          </button>
+        </div>
+        <p id="errorMessage" class="error-message"></p>
+      </div>
+    </div>
+
+    <!-- Page 2: Question -->
+    <div class="page page2" id="page2">
+      <div class="question-container">
+        <h1>Will you be my Valentine?</h1>
+        <div class="image-placeholder">
+          <img
+            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2Z3eDVrN3lxbDB5eWw1cDAzYXM1bDljcnR6aDJiZTVwcmVoODRvOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4N1wOi78ZGzSB6H7vK/giphy.gif"
+            alt="GIF" height="200px" width="200px"
+          />
+        </div>
+        <div class="button-container">
+          <button class="btn-yes" onclick="goToPage(3)">Yes ❤️</button>
+          <button class="btn-no" id="noBtn" onmouseover="moveButton()">
+            No 💔
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 3: Invitation Card Template -->
+    <div class="page page3" id="page3">
+      <div class="card-template">
+        <div class="card-decoration">✨ 💕 ✨</div>
+        <h2>You're Invited!</h2>
+        <p>
+          Hi Love! I'm inviting you for a valentines/ 6th monthsary date!<br /><br />
+          February 22, 2026 at Nonno Guido's Ristorante<br /><br />
+          It's our first valentine's day together and I can't wait to spend it
+          with you! Happy valentines and monthsary love! I love you!<br /><br />
+        </p>
+        <div class="location-image-placeholder">
+          <img
+            src="img/location.jpg"
+            alt="Location"
+          />
+        </div>
+        <div class="card-decoration">💌 🌹 💌</div>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn-next" onclick="goToPage(2)">← Back</button>
+        <button class="btn-next" onclick="goToPage(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Page 4: Carousel -->
+    <div class="page page4" id="page4">
+      <div class="carousel-container">
+        <h1>Yayy! Thank you for accepting my invitation! I Miss You 💕</h1>
+        <div class="custom-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide-item">
+              <img
+                src="img/carousel1.jpg"
+                alt="Memory 1"
+              />
+              <div class="carousel-caption">
+                <h5>❤️ Every moment without you</h5>
+                <p>feels like forever</p>
+              </div>
+            </div>
+            <div class="carousel-slide-item">
+              <img
+                src="img/carousel2.jpg"
+                alt="Memory 2"
+              />
+              <div class="carousel-caption">
+                <h5>💭 I can't stop thinking</h5>
+                <p>about you</p>
+              </div>
+            </div>
+            <div class="carousel-slide-item">
+              <img
+                src="img/carousel3.jpg"
+                alt="Memory 3"
+              />
+              <div class="carousel-caption">
+                <h5>🌹 You mean</h5>
+                <p>the world to me</p>
+              </div>
+            </div>
+            <div class="carousel-slide-item">
+              <img
+                src="img/carousel4.jpg"
+                alt="Memory 4"
+              />
+              <div class="carousel-caption">
+                <h5>💕 Can't wait</h5>
+                <p>to see you soon</p>
+              </div>
+            </div>
+            <div class="carousel-slide-item">
+              <img
+                src="img/carousel5.jpg"
+                alt="Memory 5"
+              />
+              <div class="carousel-caption">
+                <h5>✨ You make my heart</h5>
+                <p>very happy</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-prev" onclick="prevCarouselSlide()">❮</button>
+          <button class="carousel-next" onclick="nextCarouselSlide()">❯</button>
+          <div class="carousel-indicators-custom">
+            <button
+              class="indicator active"
+              onclick="goToCarouselSlide(0)"
+            ></button>
+            <button class="indicator" onclick="goToCarouselSlide(1)"></button>
+            <button class="indicator" onclick="goToCarouselSlide(2)"></button>
+            <button class="indicator" onclick="goToCarouselSlide(3)"></button>
+            <button class="indicator" onclick="goToCarouselSlide(4)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let currentPage = 1;
+      let currentSlide = 0;
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+
+      // Generate floating hearts for background
+      function generateHearts() {
+        const bg = document.getElementById("romanticBg");
+        for (let i = 0; i < 20; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart-bg";
+          heart.textContent = "❤️";
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.top = Math.random() * 100 + "%";
+          heart.style.animationDelay = Math.random() * 3 + "s";
+          bg.appendChild(heart);
+        }
+      }
+
+      // Page Navigation
+      function goToPage(pageNum) {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach((page) => page.classList.remove("active"));
+        document.getElementById("page" + pageNum).classList.add("active");
+        currentPage = pageNum;
+      }
+
+      // Move No Button to random position
+      function moveButton() {
+        const noBtn = document.getElementById("noBtn");
+        const randomX = Math.random() * 300 - 150;
+        const randomY = Math.random() * 300 - 150;
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      }
+
+      // Custom Carousel Functions
+      let currentCarouselSlide = 0;
+      const carouselSlides = document.querySelectorAll(".carousel-slide-item");
+      const totalCarouselSlides = carouselSlides.length;
+
+      let passwordPin = "";
+      const correctPassword = "081525";
+
+      function addPin(digit) {
+        if (passwordPin.length < 6) {
+          passwordPin += digit;
+          updatePasswordDisplay();
+          document.getElementById("errorMessage").textContent = "";
+        }
+      }
+
+      function deletePin() {
+        passwordPin = passwordPin.slice(0, -1);
+        updatePasswordDisplay();
+        document.getElementById("errorMessage").textContent = "";
+      }
+
+      function updatePasswordDisplay() {
+        document.getElementById("passwordInput").value = passwordPin
+          .split("")
+          .map(() => "•")
+          .join("");
+      }
+
+      function submitPassword() {
+        if (passwordPin === correctPassword) {
+          goToPage(2);
+          passwordPin = "";
+          updatePasswordDisplay();
+        } else {
+          document.getElementById("errorMessage").textContent =
+            "Wrong date! Try again.";
+          passwordPin = "";
+          updatePasswordDisplay();
+        }
+      }
+
+      function showCarouselSlide(n) {
+        const slides = document.querySelectorAll(".carousel-slide-item");
+        const indicators = document.querySelectorAll(".indicator");
+
+        if (n >= totalCarouselSlides) currentCarouselSlide = 0;
+        if (n < 0) currentCarouselSlide = totalCarouselSlides - 1;
+
+        slides.forEach((slide) => slide.classList.remove("active"));
+        indicators.forEach((ind) => ind.classList.remove("active"));
+
+        slides[currentCarouselSlide].classList.add("active");
+        indicators[currentCarouselSlide].classList.add("active");
+      }
+
+      function nextCarouselSlide() {
+        currentCarouselSlide++;
+        showCarouselSlide(currentCarouselSlide);
+      }
+
+      function prevCarouselSlide() {
+        currentCarouselSlide--;
+        showCarouselSlide(currentCarouselSlide);
+      }
+
+      function goToCarouselSlide(n) {
+        currentCarouselSlide = n;
+        showCarouselSlide(currentCarouselSlide);
+      }
+
+      // Initialize
+      generateHearts();
+      showCarouselSlide(currentCarouselSlide);
+    </script>
+  </body>
+</html>
